@@ -1,16 +1,11 @@
  # TCM22-SIBD-G01
-Metro
 ## **Metro**
 
 Repositório para hospedar o projeto desenvolvido para *Sistemas de Informação e Bases de Dados*. Desenvolvido pelo Grupo G01: [@AnaFaria](https://github.com/FariaAna), [@DavidLima](https://github.com/D-S-Lima) e [@InêsSousa](https://github.com/a041326).
 
 ## Breve descrição do tema
 
-Queremos organizar o sistema do metro no sentido em que o metro tem um sistema de cartões de andante que estão associado a enumeras pessoas. As mesmas registaram-se nesse sistema e podem ou não ter um passe de zona geral, sendo assim, imaginemos o seguinte problema:
-
- **Os fiscalizadores pretendem multar alguém que indica ter passe, porém perdeu o mesmo ou esqueceu-se, normalmente seria multado por um serviço que está a usufruir.**
-
-O nosso objetivo é resolver este problema de modo a que os dados de todos os que possuam um passe sejam organizados e o pica perceba que a pessoa está a pagar pelo serviço na sua totalidade e apenas teve um azar de não o ter com ele pela razão que o mesmo apresentar.
+O texto descreve um problema no sistema de transporte público do metro, em que os fiscalizadores podem multar usuários que indicam possuir um passe de zona geral, mas que o perderam ou esqueceram em casa. O objetivo é resolver este problema por meio da organização dos dados dos usuários que possuem um passe, para que os fiscalizadores possam verificar facilmente se o usuário está autorizado a utilizar o serviço completo, mesmo que não esteja com o passe em mãos. Isso evita que usuários sejam multados injustamente e garante a eficiência do sistema de transporte público.
 
 ## Organização do repositório
 
@@ -30,8 +25,6 @@ Por favor, ajude o leitor a navegar descrevendo como o repositório está organi
 - Inês Sousa [@InêsSousa](https://github.com/a041326)
 
 # **Relatório de Especificação da Informação**
-
-## Índice
 
 ## C1 : Introdução
 
