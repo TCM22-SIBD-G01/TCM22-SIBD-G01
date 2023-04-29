@@ -35,7 +35,7 @@ Por favor, ajude o leitor a navegar descrevendo como o repositório está organi
 
 ## C1 : Introdução
 
-### Descrição do trabalho
+### **Descrição do trabalho**
 
 Queremos organizar o sistema do metro no sentido em que o metro tem um sistema de cartões de andante que estão associado a enumeras pessoas. As mesmas registaram-se nesse sistema e podem ou não ter um passe de zona geral, sendo assim, imaginemos o seguinte problema:
 
@@ -78,3 +78,28 @@ Os  tipos de utilizadores (actores) do sistema de informação e as funcionalida
    - Recarregar o cartão de andante;
 
    - Informar ID ao fiscalizador (caso não tenha o seu cartão/passe consigo);
+
+## C2 : Esquema conceptual
+### **Modelo E/A**
+ ![Esquema Conceptual](/doc/imagens/EsquemaConceptual.jpg)
+### **Regras de negócio adicionais (Restrições)**
+
+1. Um cartão de andante só pode estar associado a um usuário.
+
+2. Um usuário só pode viajar em uma zona que corresponda ao seu passe.
+
+3. Um cartão de andante só pode ter uma viagem registrada de cada vez.
+
+4. O preço vai depender do tipo de passe e da zona do mesmo.
+
+5. Um usuário deve ser multado se estiver sem um passe válido, no sistema, durante uma viagem. Caso tenha um passe valido mas não o tenha (fisicamente) não é multado, mas deve dizer o seu andante ID ou NIF ao fiscalizador para o mesmo confirmar se está valido, se a zona corresponde à do seu andante.
+
+6. As informações pessoais dos usuários devem ser protegidas e mantidas confidenciais.
+
+7. O sistema deve ter um backup diário para garantir que as informações dos usuários sejam mantidas seguras e não sejam perdidas em caso de falha de hardware ou software.
+
+## C3 : Normalização
+
+## C4 : Esquema Relacional
+
+## C5 : SQL
