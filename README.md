@@ -5,7 +5,7 @@ Repositório para hospedar o projeto desenvolvido para *Sistemas de Informação
 
 ## Breve descrição do tema
 
-Resolução de um problema no sistema de transporte público do metro, em que os fiscalizadores podem multar usuários que indicam possuir um passe de zona geral, mas que o perderam ou esqueceram em casa. O objetivo é resolver este problema por meio da organização dos dados dos usuários que possuem um passe, para que os fiscalizadores possam verificar facilmente se o usuário está autorizado a utilizar o serviço completo, mesmo que não esteja com o passe em mãos. Isso evita que usuários sejam multados injustamente e garante a eficiência do sistema de transporte público.
+Este projeto busca resolver um problema de multas injustas no sistema de transporte público de metro, ao organizar os dados dos usuários com passe/cartão Andante para que os fiscalizadores possam verificar se o mesmo se encontra no sistema, mesmo sem o passe em mãos, garantindo assim eficiência e evitando multas indevidas.
 
 ## Organização do repositório
 
@@ -26,11 +26,16 @@ Por favor, ajude o leitor a navegar descrevendo como o repositório está organi
 
 ### **Descrição do trabalho**
 
-Queremos organizar o sistema do metro no sentido em que o metro tem um sistema de cartões de andante que estão associado a enumeras pessoas. As mesmas registaram-se nesse sistema e podem ou não ter um passe de zona geral, sendo assim, imaginemos o seguinte problema:
+Para resolver este problema, vamos utilizar um sistema de gestão de cartões de andante que esteja interligado com uma base de dados central, que permite a identificação dos utilizadores e os seus respetivos passes.
 
- **Os fiscalizadores pretendem multar alguém que indica ter passe, porém perdeu o mesmo ou esqueceu-se, normalmente seria multado por um serviço que está a usufruir.**
+Primeiramente, para os utilizadores desfrutarem deste serviço, é necessário que estes se registem no sistema. Fornecendo informações como o seu nome, email, número de telefone, endereço e NIF. Posteriormente, cada utilizador pode adquirir um cartão de andante, que estará associado a um tipo de assinatura (passe geral, passe sub23, passe família, entre outros).
 
-O nosso objetivo é resolver este problema de modo a que os dados de todos os que possuam um passe sejam organizados e o pica perceba que a pessoa está a pagar pelo serviço na sua totalidade e apenas teve um azar de não o ter com ele pela razão que o mesmo apresentar.
+Cada cartão de andante terá um número único de identificação e informações como o preço do cartão, data de validade e tarifas associadas ao tipo de assinatura do utilizador. Além disso, será possível registrar cada viagem realizada pelo utilizador, indicando a zona de viagem, data e hora.
+
+No caso de um fiscalizador abordar um utilizador que indica ter um passe, mas não o tem consigo, o fiscalizador poderá verificar a base de dados central para validar se o utilizador possui realmente um passe ativo. Se for confirmado que o utilizador possui um passe válido, o fiscalizador poderá prosseguir, sem aplicar a multa.
+
+Em suma, um sistema de gestão de cartões de andante interligado com uma base de dados central permite a organização dos dados dos utilizadores e a validação dos passes em tempo real, evitando multas indevidas por parte dos fiscalizadores.
+
 
 ### **Descrição dos requisitos do utilizador**
 
@@ -142,6 +147,10 @@ EFETUA_VIAGEM (**UsuarioID** -> Usuario, **ViagemID** ->Viagem)
 ### **3NF**
 
 As relações já se encontram na 3NF.
+
+### **BCNF**
+
+
 
 ## C4 : Esquema Relacional
 
