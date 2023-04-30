@@ -5,16 +5,12 @@ Repositório para hospedar o projeto desenvolvido para *Sistemas de Informação
 
 ## Breve descrição do tema
 
-O texto descreve um problema no sistema de transporte público do metro, em que os fiscalizadores podem multar usuários que indicam possuir um passe de zona geral, mas que o perderam ou esqueceram em casa. O objetivo é resolver este problema por meio da organização dos dados dos usuários que possuem um passe, para que os fiscalizadores possam verificar facilmente se o usuário está autorizado a utilizar o serviço completo, mesmo que não esteja com o passe em mãos. Isso evita que usuários sejam multados injustamente e garante a eficiência do sistema de transporte público.
+Resolução de um problema no sistema de transporte público do metro, em que os fiscalizadores podem multar usuários que indicam possuir um passe de zona geral, mas que o perderam ou esqueceram em casa. O objetivo é resolver este problema por meio da organização dos dados dos usuários que possuem um passe, para que os fiscalizadores possam verificar facilmente se o usuário está autorizado a utilizar o serviço completo, mesmo que não esteja com o passe em mãos. Isso evita que usuários sejam multados injustamente e garante a eficiência do sistema de transporte público.
 
 ## Organização do repositório
 
 Por favor, ajude o leitor a navegar descrevendo como o repositório está organizado, *fornecendo links*.
 
-
-# Relatório de Especificação da Informação
-
-## Índice
 
 ## Grupo 01
 
@@ -92,6 +88,60 @@ Os  tipos de utilizadores (actores) do sistema de informação e as funcionalida
 7. O sistema deve ter um backup diário para garantir que as informações dos usuários sejam mantidas seguras e não sejam perdidas em caso de falha de hardware ou software.
 
 ## C3 : Normalização
+
+### **Relações**
+
+Usuario (UsuarioID, Nome, Email, NumeroTelefone, Endereco, NIF) 	
+
+Viagem (ViagemID, ZonaViagem, DataViagem, HoraViagem)
+
+Cartão_de_Andante (UsuarioID, TipoAssinatura)
+
+Andante sub13 (TipoAssinatura, UsuarioID, PrecoCartao, DataValidadeCartao, Tarifa)
+
+Andante_4_18@escola (TipoAssinatura, UsuarioID, PrecoCartao, DataValidadeCartao, Tarifa)
+
+Andante sub23 (TipoAssinatura, UsuarioID, PrecoCartao, DataValidadeCartao, Tarifa)
+
+Andante social+ (TipoAssinatura, UsuarioID, PrecoCartao, DataValidadeCartao, Tarifa)
+
+Andante 3ªidade (TipoAssinatura, UsuarioID, PrecoCartao, DataValidadeCartao, Tarifa)
+
+Andante Familia (TipoAssinatura, UsuarioID, PrecoCartao, DataValidadeCartao, Tarifa)
+
+REGISTRA (#UsuarioID -> Usuario, #NIF -> Usuario, #TipoAssinatura -> Cartão_de_Andante, Email, NomeUsuario, Endereco, NumeroTelefone)
+
+POSSUI_UM (UsuarioID -> Usuario, NIF -> Usuario, TipoAssinatura -> Cartao_de_Andante)
+
+EFETUA (TipoAssinatura, ViagemID, ZonaViagem, DataViagem, HoraViagem)
+
+### **Normalização do Esquema Relacional**
+
+### **1NF**
+
+![Normalização, 1NF](/doc/imagens/1NF.jpg)
+
+Usuário (**UsuarioID**,**NIF**, Nome, Email, NumeroTelefone, Endereco)
+
+Cartão_de_Andante (**UsuarioID**, **TipoAssinatura**, PrecoCartao, DataValidadeCartao, Tarifa)
+
+Viagem (**ViagemID**, ZonaViagem, DataViagem, HoraViagem)
+
+### **2NF**
+
+![Normalização, 2NF](/doc/imagens/2NF.jpg)
+
+Usuario (**UsuarioID**,**NIF**, Nome, Email, NumeroTelefone, Endereco)
+
+Cartao_de_Andante (**#UsuarioID** -> Usuario, **TipoAssinatura**, PrecoCartao, DataValidadeCartao, Tarifa)
+
+Viagem (**ViagemID**, ZonaViagem, DataViagem, HoraViagem)
+
+EFETUA_VIAGEM (**UsuarioID** -> Usuario, **ViagemID** ->Viagem)
+
+### **3NF**
+
+As relações já se encontram na 3NF.
 
 ## C4 : Esquema Relacional
 
