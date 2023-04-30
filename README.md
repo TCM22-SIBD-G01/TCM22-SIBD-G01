@@ -150,7 +150,7 @@ As relações já se encontram na 3NF.
 
 ### **BCNF**
 
-
+![Normalização, BCNF](/doc/imagens/BCNF.jpg)
 
 ## C4 : Esquema Relacional
 
