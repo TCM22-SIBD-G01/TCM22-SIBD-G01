@@ -154,4 +154,57 @@ As relações já se encontram na 3NF.
 
 ## C4 : Esquema Relacional
 
-## C5 : SQL
+### **Relações**
+
+### Tabela Usuário 
+### **Descrição**
+
+### **Colunas**
+
+![Coluna, Tabela Usuario](/doc/imagens/Tb_Usuario.jpg)
+
+### **Restrições de Integridade**
+
+- **Chave Primária**:
+
+- **Unicidade**:
+
+- **Referêncial**:
+
+- **Atributos**:
+
+### Tabela Cartão de Andante 
+
+### **Descrição**
+
+### **Colunas**
+
+![Coluna, Tabela Cartão Andante](/doc/imagens/Tb_CataoAndante.jpg)
+
+### **Restrições de Integridade**
+
+- **Chave Primária**:
+
+- **Unicidade**:
+
+- **Referêncial**:
+
+- **Atributos**:
+
+### Tabela Viagem
+
+### **Descrição**
+
+### **Colunas**
+
+![Coluna, Tabela Viagem](/doc/imagens/Tb_Viagem.jpg)
+
+### **Restrições de Integridade**
+
+- **Chave Primária**:
+
+- **Unicidade**:
+
+- **Referêncial**:
+
+- **Atributos**:
