@@ -37,8 +37,11 @@ Cada cartão de andante terá um número único de identificação e informaçõ
 
 No caso de um fiscalizador abordar um utilizador que indica ter um passe, mas não o tem consigo, o fiscalizador poderá verificar a base de dados central para validar se o utilizador possui realmente um passe ativo. Se for confirmado que o utilizador possui um passe válido, o fiscalizador poderá prosseguir, sem aplicar a multa.
 
+O sistema deve armazenar as informações dos usuários, cartões Andante e viagens realizadas. As informações sobre os cartões Andante devem estar vinculadas à conta do usuário correspondente. Os fiscalizadores podem verificar a validade do passe do usuário consultando o banco de dados e as informações do cartão Andante. Se o usuário tiver um passe válido, mas não o tiver consigo no momento da fiscalização, o fiscalizador deve considerar que o usuário está pagando pelos serviços e apenas teve um problema de não ter o cartão com ele. Caso contrário, o fiscalizador deve aplicar a multa correspondente.
+
 Em suma, um sistema de gestão de cartões de andante interligado com uma base de dados central permite a organização dos dados dos utilizadores e a validação dos passes em tempo real, evitando multas indevidas por parte dos fiscalizadores.
 
+# C2 : Especificação de Requestos
 
 ## **Descrição dos requisitos do utilizador**
 
@@ -75,12 +78,13 @@ Os  tipos de utilizadores (actores) do sistema de informação e as funcionalida
    - Recarregar o cartão de andante;
 
    - Informar ID ao fiscalizador (caso não tenha o seu cartão/passe consigo);
-# C2 : Especificação de Requisitos
 
 
 # C3 : Esquema conceptual
 ## **Modelo E/A**
  ![Esquema Conceptual](/doc/imagens/EsquemaConceptual.jpg)
+ Neste esquema conceptual mostramos os conteudos que pertencem em sistema ao usuario, o que o mesmo regista no sistema, assim como o memso possuir um cartão andante que é usado para efetuar viagens, o mesmo tem uma assinatura e está associado a um usuario e a um tipo de assinatura.
+ 
 ## **Regras de negócio adicionais (Restrições)**
 
 1. Um cartão de andante só pode estar associado a um usuário.
