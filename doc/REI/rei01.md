@@ -1,30 +1,3 @@
-# TCM22-SIBD-G01
-## **Metro**
-
-Repositório para hospedar o projeto desenvolvido para *Sistemas de Informação e Bases de Dados*. Desenvolvido pelo Grupo G01: [@AnaFaria](https://github.com/FariaAna), [@DavidLima](https://github.com/D-S-Lima) e [@InêsSousa](https://github.com/a041326).
-
-## Breve descrição do tema
-
-Este projeto busca resolver um problema de multas injustas no sistema de transporte público de metro, ao organizar os dados dos usuários com passe/cartão Andante para que os fiscalizadores possam verificar se o mesmo se encontra no sistema, mesmo sem o passe em mãos, garantindo assim eficiência e evitando multas indevidas.
-
-
-# **Relatório de Especificação da Informação**
-
-## Índice
-
-### :[Introdução](/doc/REI/rei01.md)
-
-### :[Especificação de Requisitos](/doc/REI/rei02.md)
-
-### :[Esquema conceptual](/doc/REI/rei03.md)
-## Grupo 01
-
-- Ana Faria [@AnaFaria](https://github.com/FariaAna)
-
-- David Lima [@DavidLima](https://github.com/D-S-Lima)
-
-- Inês Sousa [@InêsSousa](https://github.com/a041326)
-
 # C1 : Introdução
 
 ## **Descrição do trabalho**
@@ -75,24 +48,8 @@ Os  tipos de utilizadores (actores) do sistema de informação e as funcionalida
    - Recarregar o cartão de andante;
 
    - Informar ID ao fiscalizador (caso não tenha o seu cartão/passe consigo);
-# C2 : Especificação de Requisitos
 
-
-# C3 : Esquema conceptual
-## **Modelo E/A**
- ![Esquema Conceptual](/doc/imagens/EsquemaConceptual.jpg)
-## **Regras de negócio adicionais (Restrições)**
-
-1. Um cartão de andante só pode estar associado a um usuário.
-
-2. Um usuário só pode viajar em uma zona que corresponda ao seu passe.
-
-3. Um cartão de andante só pode ter uma viagem registrada de cada vez.
-
-4. O preço vai depender do tipo de passe e da zona do mesmo.
-
-5. Um usuário deve ser multado se estiver sem um passe válido, no sistema, durante uma viagem. Caso tenha um passe valido mas não o tenha (fisicamente) não é multado, mas deve dizer o seu andante ID ou NIF ao fiscalizador para o mesmo confirmar se está valido, se a zona corresponde à do seu andante.
-
-6. As informações pessoais dos usuários devem ser protegidas e mantidas confidenciais.
-
-7. O sistema deve ter um backup diário para garantir que as informações dos usuários sejam mantidas seguras e não sejam perdidas em caso de falha de hardware ou software.
+   ---
+   
+[< Previous](rei00.md) | [^ Main](https://github.com/a041326/TCM22-SIBD-G01/blob/main/README.md) | [Next >](rei02.md)
+:--- | :---: | ---: 
