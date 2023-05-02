@@ -1,6 +1,6 @@
 # C3 : Esquema conceptual
 ### **Modelo E/A**
- ![Esquema Conceptual](/doc/imagens/EsquemaConceptual.jpg)
+ ![Esquema Conceptual](/doc/REI/imagens/EsquemaConceptual.jpg)
 ### **Regras de negócio adicionais (Restrições)**
 
 1. Um cartão de andante só pode estar associado a um usuário.
