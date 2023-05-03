@@ -1,7 +1,7 @@
 # TCM22-SIBD-G01
 ## Metro
 
-Repositório para hospedar o projeto desenvolvido para *Sistemas de Informação e Bases de Dados*. Desenvolvido pelo Grupo G01: [@AnaFaria](https://github.com/FariaAna), [@DavidLima](https://github.com/D-S-Lima) e [@InêsSousa](https://github.com/a041326).
+Repositório para hospedar o projeto desenvolvido para *Sistemas de Informação e Bases de Dados*. Desenvolvido pelo Grupo 01: [@AnaFaria](https://github.com/FariaAna), [@DavidLima](https://github.com/D-S-Lima) e [@InêsSousa](https://github.com/a041326).
 
 ## Breve descrição do tema
 
@@ -17,6 +17,11 @@ Este projeto busca resolver um problema de multas injustas no sistema de transpo
 | :----------------|
 |![Esquema Conceptual](/doc/REI/imagens/EsquemaConceptual.jpg)|
 
+# Tecnologias
+
+- [Virtual Studio Code](https://code.visualstudio.com)
+
+- [Diagrams](https://www.diagrams.net)
 
 # Relatórios
 
