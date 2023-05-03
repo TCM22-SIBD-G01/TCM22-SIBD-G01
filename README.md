@@ -15,8 +15,7 @@ Este projeto busca resolver um problema de multas injustas no sistema de transpo
 
 | Esquema Conceptual|
 | :----------------|
-|![Esquema Conceptual](/doc/REI/imagens/EsquemaConceptual.jpg)
-|
+|![Esquema Conceptual](/doc/REI/imagens/EsquemaConceptual.jpg)|
 
 
 # Relatórios
