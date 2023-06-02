@@ -7,6 +7,8 @@
 Esta tabela reflete como todas as informções estão relacionadas entre si, as informações sobre cada uma das colunas, entre outras.
 ### **Colunas**
 
+![ModeloRelacional1](/doc/REBD/imagens/ModeloRelacional1.png)
+
 ### **Restrições de Integridade**
 - **Chave Primária:**
 
@@ -20,6 +22,8 @@ Esta tabela reflete como todas as informções estão relacionadas entre si, as 
 ### Descrição da Tabela CartaoAndante ###
 Esta tabela reflete como todas as informções estão relacionadas entre si, as informações sobre cada uma das colunas, entre outras.
 ### **Colunas**
+
+![ModeloRelacional2](/doc/REBD/imagens/ModeloRelacional2.png)
 
 ### **Restrições de Integridade**
 - **Chave Primária:**
@@ -39,6 +43,8 @@ Esta tabela reflete como todas as informções estão relacionadas entre si, as 
 Esta tabela reflete como todas as informções estão relacionadas entre si, as informações sobre cada uma das colunas, entre outras.
 ### **Colunas**
 
+![ModeloRelacional3](/doc/REBD/imagens/ModeloRelacional3.png)
+
 ### **Restrições de Integridade**
 - **Chave Primária:**
 
@@ -48,6 +54,8 @@ Esta tabela reflete como todas as informções estão relacionadas entre si, as 
 ### Descrição da Tabela Viagem ###
 Esta tabela reflete como todas as informções estão relacionadas entre si, as informações sobre cada uma das colunas, entre outras.
 ### **Colunas**
+
+![ModeloRelacional4](/doc/REBD/imagens/ModeloRelacional4.png)
 
 ### **Restrições de Integridade**
 - **Chave Primária:**
