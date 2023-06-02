@@ -1,4 +1,4 @@
-# C4 : Esquema Relacional
+# C4 : Modelo Relacional
 
 ## **Relações**
 #
