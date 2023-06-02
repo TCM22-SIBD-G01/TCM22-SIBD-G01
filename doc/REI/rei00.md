@@ -18,5 +18,5 @@
 
 
 ---
-[< Previous](rei00.md) | [^ Main](https://github.com/a041326/TCM22-SIBD-G01/blob/main/README.md) | [Next >](rei01.md)
+< Previous | [^ Main](https://github.com/a041326/TCM22-SIBD-G01/blob/main/README.md) | [Next >](rei01.md)
 :--- | :---: | ---: 

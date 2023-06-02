@@ -1,7 +1,7 @@
 # C3 : Esquema conceptual
 ## **Modelo E/A**
 
- ![Esquema Conceptual](/doc/REI/imagens/EsquemaConceptual.jpg)
+ ![Esquema Conceptual](/doc/REI/imagens/Esquema_Conceptual.png)
 
  Neste esquema conceptual mostramos os conteudos que pertencem em sistema ao usuario, o que o mesmo regista no sistema, assim como o memso possuir um cartão andante que é usado para efetuar viagens, o mesmo tem uma assinatura e está associado a um usuario e a um tipo de assinatura.
  
@@ -24,5 +24,5 @@
 
 ---
    
-[< Previous](rei02.md) | [^ Main](https://github.com/a041326/TCM22-SIBD-G01/blob/main/README.md) | [Next >](rei03.md)
+[< Previous](rei02.md) | [^ Main](https://github.com/a041326/TCM22-SIBD-G01/blob/main/README.md) |  Next >
 :--- | :---: | ---: 
