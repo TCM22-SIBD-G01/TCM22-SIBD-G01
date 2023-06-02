@@ -9,9 +9,10 @@ Esta tabela reflete como todas as informções estão relacionadas entre si, as 
 
 ### **Restrições de Integridade**
 - **Chave Primária:**
+![ChavePrimaria1](/doc/REBD/imagens/Chaveprimaria1.png)
 
 - **Unicidade:**
-
+![Unicidade1](/doc/REBD/imagens/Unicidade1.png)
 
 ### **Tabela CartaoAndante**
 ### Descrição da Tabela CartaoAndante ###
@@ -20,11 +21,13 @@ Esta tabela reflete como todas as informções estão relacionadas entre si, as 
 
 ### **Restrições de Integridade**
 - **Chave Primária:**
+![ChavePrimaria2](/doc/REBD/imagens/Chaveprimaria2.png)
 
 - **Unicidade:**
+![Unicidade2](/doc/REBD/imagens/Unicidade2.png)
 
 - **Chave Estrangeira:**
-
+![ChaveEstrangeira](/doc/REBD/imagens/ChaveEstrangeira1.png)
 
 ### **Tabela Assinatura**
 ### Descrição da Tabela Assinatura ###
@@ -33,7 +36,7 @@ Esta tabela reflete como todas as informções estão relacionadas entre si, as 
 
 ### **Restrições de Integridade**
 - **Chave Primária:**
-
+![ChavePrimaria3](/doc/REBD/imagens/Chaveprimaria3.png)
 
 ### **Tabela Viagem**
 ### Descrição da Tabela Viagem ###
@@ -42,10 +45,13 @@ Esta tabela reflete como todas as informções estão relacionadas entre si, as 
 
 ### **Restrições de Integridade**
 - **Chave Primária:**
+![ChavePrimaria4](/doc/REBD/imagens/Chaveprimaria4.png)
 
 - **Unicidade:**
+![Unicidade4](/doc/REBD/imagens/Unicidade3.png)
 
 - **Chave Estrangeira:**
+![ChaveEstrangeira2](/doc/REBD/imagens/ChaveEstrangeira2.png)
 
 ## **Vistas**
 
