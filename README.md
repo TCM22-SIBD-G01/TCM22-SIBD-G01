@@ -13,9 +13,14 @@ Este projeto busca resolver um problema de multas injustas no sistema de transpo
 
 # Galeria
 
-| Esquema Conceptual|
-| :----------------|
-|![Esquema Conceptual](/doc/REI/imagens/Esquema_Conceptual.png)|
+|   Esquema Conceptual   |    Normalização    |   Modelo Relacional  | |
+|--------------|-----------|------------|------------|
+|![Esquema Conceptual](/doc/REI/imagens/Esquema_Conceptual.png)|![Normalização](/doc/REBD/imagens/1NF.png)|![ModeloRelacional1](/doc/REBD/imagens/ModeloRelacional1.png) ![ModeloRelacional2](/doc/REBD/imagens/ModeloRelacional2.png)![ModeloRelacional3](/doc/REBD/imagens/ModeloRelacional3.png) ![ModeloRelacional4](/doc/REBD/imagens/ModeloRelacional4.png)|
+|Restrições de Integridade Usuário| Restrições de Integridade Cartao_Andante | Restrições de Integridade Assinatura | Restrições de Integridade Viagem |
+| ![Chave primaria 1](/doc/REBD/imagens/Chaveprimaria1.png) ![Unicidade 1](/doc/REBD/imagens/Unicidade1.png) | ![Chave primaria 2](/doc/REBD/imagens/Chaveprimaria2.png) ![Unicidade 2](/doc/REBD/imagens/Unicidade2.png) ![Chave Estrangeira 1](/doc/REBD/imagens/ChaveEstrangeira1.png) | ![Chave primaria 3](/doc/REBD/imagens/Chaveprimaria3.png)| ![Chave primaria 4](/doc/REBD/imagens/Chaveprimaria4.png) ![Unicidade 3](/doc/REBD/imagens/Unicidade3.png) ![Chave Estrangeira 2](/doc/REBD/imagens/ChaveEstrangeira2.png) |
+
+
+
 
 # Tecnologias
 
