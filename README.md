@@ -27,12 +27,13 @@ Este projeto busca resolver um problema de multas injustas no sistema de transpo
 
 :[REI, Relatório de Especificação da Informação](/doc/REI/rei00.md)
 
+:[REBD, Relatório de Especificação da Base de Dados](/doc/REBD/rebd00.md)
+
 :[M2 Proposta](/doc/TCM22-SIBD01-M2Proposta.md)
 
 ## Grupo 01
 
 - Ana Faria [@AnaFaria](https://github.com/FariaAna)
-
 
 - David Lima [@DavidLima](https://github.com/D-S-Lima)
 
