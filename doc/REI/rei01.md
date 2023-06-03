@@ -2,24 +2,67 @@
 
 ## **Descrição do trabalho**
 
-Queremos organizar o sistema do metro no sentido em que o metro tem um sistema de cartões de andante que estão associado a enumeras pessoas. As mesmas registaram-se nesse sistema e podem ou não ter um passe de zona geral, sendo assim, imaginemos o seguinte problema:
+O objetivo do nosso projeto é implementar uma solução abrangente para a gestão do sistema de metro que visa simplificar a utilização dos cartões Andante nas viagens de metro. O sistema foi concebido para garantir um registo eficiente, gestão de passes, validação de viagens e aplicação de tarifas.
 
-Os fiscalizadores pretendem multar alguém que indica ter passe, porém perdeu o mesmo ou esqueceu-se, normalmente seria multado por um serviço que está a usufruir.
+A necessidade de solucionar esse problema surgiu a partir de um incidente envolvendo um dos membros do grupo, David. David foi multado por não ter validado o seu passe Andante antes de entrar no metro, embora seja detentor de um passe geral, pelo qual paga mensalmente para ter acesso aos serviços de transporte.
 
-O nosso objetivo é resolver este problema de modo a que os dados de todos os que possuam um passe sejam organizados e o pica perceba que a pessoa está a pagar pelo serviço na sua totalidade e apenas teve um azar de não o ter com ele pela razão que o mesmo apresentar.
+Para evitar situações semelhantes, vamos utilizar um sistema de gestão de cartões Andante que esteja interligado com uma base de dados central, permitindo a identificação dos utilizadores e seus respetivos passes.
 
-Para resolver este problema, vamos utilizar um sistema de gestão de cartões de andante que esteja interligado com uma base de dados central, que permite a identificação dos utilizadores e os seus respetivos passes.
+Inicialmente, os utilizadores devem registar-se no sistema fornecendo informações como nome, email, número de telefone, endereço e NIF. Posteriormente, cada utilizador pode adquirir um cartão Andante, que estará associado a um tipo de assinatura (passe geral, passe sub23, passe família, entre outros).
 
-Primeiramente, para os utilizadores desfrutarem deste serviço, é necessário que estes se registem no sistema. Fornecendo informações como o seu nome, email, número de telefone, endereço e NIF. Posteriormente, cada utilizador pode adquirir um cartão de andante, que estará associado a um tipo de assinatura (passe geral, passe sub23, passe família, entre outros).
+Cada cartão Andante terá um número único de identificação e data de validade, contendo a informação da assinatura correspondente, a qual pode variar dependendo da opção escolhida pelo utilizador. Após obter o cartão, o utilizador regista os seus dados no sistema mencionado acima. Ao efetuar uma viagem, será possível verificar o ID, início e data da viagem, permitindo a validação pelo fiscalizador se já foi previamente validado por outros meios.
 
-Cada cartão de andante terá um número único de identificação e a sua data de validade, o mesmo contem a sua assinatura (a mesma pode variar dependendo da escolhida pelo utilizador). A assinatura tem uma validade, um preço e o seu tipo de assinatura.
-O utilizador após obter o cartão regista os seus dados indicados acima no sistema, o mesmo ao fazer isso quando efetuar uma viagem, será possivel verificar o ID da viagem juntamente com o inicio da mesma, a sua data e permite validar ao fiscalizador, se foi anteriormente validado por outros ou não.
+No caso de um fiscalizador abordar um utilizador que indica ter um passe, mas não o tem consigo, o fiscalizador poderá verificar a base de dados central para validar se o utilizador realmente possui um passe ativo. Confirmada a validade do passe, o fiscalizador poderá prosseguir sem aplicar a multa.
 
-No caso de um fiscalizador abordar um utilizador que indica ter um passe, mas não o tem consigo, o fiscalizador poderá verificar a base de dados central para validar se o utilizador possui realmente um passe ativo. Se for confirmado que o utilizador possui um passe válido, o fiscalizador poderá prosseguir, sem aplicar a multa.
+O sistema deve armazenar as informações dos utilizadores, cartões Andante e viagens realizadas. As informações sobre os cartões Andante devem estar vinculadas à conta do utilizador correspondente. Os fiscalizadores podem verificar a validade do passe do utilizador consultando a base de dados e as informações do cartão Andante. Se o utilizador tiver um passe válido, mas não o tiver consigo no momento da fiscalização, o fiscalizador deve considerar que o utilizador está a pagar pelos serviços e apenas teve um problema de não ter o cartão consigo. Caso contrário, o fiscalizador deve aplicar a multa correspondente.
 
-O sistema deve armazenar as informações dos utilizadores, cartões Andante e viagens realizadas. As informações sobre os cartões Andante devem estar vinculadas à conta do utilizador correspondente. Os fiscalizadores podem verificar a validade do passe do utilizador consultando o banco de dados e as informações do cartão Andante. Se o utilizador tiver um passe válido, mas não o tiver consigo no momento da fiscalização, o fiscalizador deve considerar que o utilizador está pagando pelos serviços e apenas teve um problema de não ter o cartão com ele. Caso contrário, o fiscalizador deve aplicar a multa correspondente.
+Em suma, um sistema de gestão de cartões Andante interligado com uma base de dados central permite a organização dos dados dos utilizadores e a validação em tempo real dos passes, evitando multas indevidas por parte dos fiscalizadores.
 
-Em suma, um sistema de gestão de cartões de andante interligado com uma base de dados central permite a organização dos dados dos utilizadores e a validação dos passes em tempo real, evitando multas indevidas por parte dos fiscalizadores.
+## **Modelação do problema**
+
+Estas entidades e relacionamentos fornecem uma base para representar a estrutura de dados do projeto, especificamente os utilizadores, cartões Andante, assinaturas e viagens.
+
+### **Entidades**:
+
+UTILIZADOR (NIF, Nome, Email, NumeroTelemovel, Endereco)
+
+- NIF: Número de Identificação Fiscal (Chave primária)
+- Nome: Nome do utilizador
+- Email: Endereço Email do utilizador
+- NumeroTelemovel: Número do temóvel do utilizador
+- Endereco: Endereço do utilizador
+
+CARTAO_ANDANTE (CartaoID, Validade)
+
+- CartaoID: Identificador exclusivo para o cartão Andante (Chave primária)
+- Validade: Data de validade do cartão
+
+ASSINATURA (Validade, TipoAssinatura, Preco)
+
+- Validade: Período de validade da assinatura (Chave primária)
+- TipoAssinatura: Tipo de assinatura (por exemplo, passe geral, passe sub23, passe família, etc.)
+- Preco: Preço da assinatura
+
+VIAGEM (ViagemID, InicioViagem, DataViagem, Validacao)
+
+- ViagemID: Identificador exclusivo para a viagem (Chave primária)
+- InicioViagem: Local inicial da viagem (Local onde o utilizador validou o passe)
+- DataViagem: Data da viagem
+- Validacao: Indicador de se a viagem foi validada ou não
+
+### **Relações**:
+
+Possui_um (#NIF -> UTILIZADOR, #CartaoID -> CARTAO_ANDANTE)
+
+- Esse relacionamento indica que um utilizador pode possuir um ou mais cartões Andante.
+
+Contem (#CartaoID -> CARTAO_ANDANTE, #TipoAssinatura -> ASSINATURA)
+
+- Este relacionamento vincula um cartão Andante específico ao seu tipo de assinatura.
+
+Efetua (#CartaoID -> CARTAO_ANDANTE, #ViagemID -> Viagem)
+
+- Essa relação significa que uma viagem está associada a um cartão Andante específico.
 
 ---
 

@@ -2,8 +2,8 @@
 
 ## **Relações**
 #
-### **Tabela Usuário**
-### Descrição da Tabela Usuário ###
+### **Tabela utilizador**
+### Descrição da Tabela utilizador ###
 Esta tabela reflete como todas as informções estão relacionadas entre si, as informações sobre cada uma das colunas, entre outras.
 ### **Colunas**
 
