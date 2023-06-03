@@ -35,35 +35,54 @@ Em suma, um sistema de gestão de cartões Andante interligado com uma base de d
 - Cada cartão Andante pode ser associado a várias viagens, e cada viagem pode ser associada a um cartão Andante específico, representado pela relação "Efetua" entre as entidades CARTAO_ANDANTE e VIAGEM.
 
 ## **Descrição dos requisitos do utilizador**
----
 
-### **Necessidades do utilizador:**
+Tendo em mente os requisitos establecidos no REI, acrescentamos mais alguns requisitos para uma compreensão mais clara das necessidades e expectativas específicas de cada papel envolvido no sistema.
+### **Requisitos do Utilizador**
 
-- Viagens Fáceis e Convenientes: Os utilizadores precisam de um sistema que simplifique a utilização dos cartões Andante para viagens de metro, garantindo uma experiência sem complicações e sem o risco de multas.
 
-- Validação Fiável de Passe: Os utilizadores precisam de ter a garantia de que os seus passes válidos serão reconhecidos e validados pelos fiscalizadores, mesmo que não tenham o cartão físico consigo.
+Registo e Gestão de Perfil:
 
-- Processo de Registo Eficiente: Os utilizadores devem ser capazes de registar-se de forma rápida e fácil, fornecendo as informações pessoais necessárias para aceder aos serviços do sistema.
+- O utilizador deve poder registar-se facilmente no sistema, fornecendo as suas informações pessoais (NIF, Nome, Email, Número de Telemóvel, Endereço).
 
-### **Requisitos Funcionais:**
+- O utilizador deve ter a capacidade de atualizar e gerir as informações do seu perfil.
 
-- Registo de Utilizador: O sistema deve permitir que os utilizadores se registem, fornecendo o seu NIF, nome, email, número de telefone e morada. Deve validar e armazenar essas informações com segurança.
+Aquisição de Cartão e Gestão de Assinaturas:
 
-- Aquisição de Cartão: Os utilizadores devem poder adquirir um cartão Andante associado a um tipo de assinatura específico. O sistema deve gerar um número de identificação único e associá-lo à conta do utilizador.
+- O utilizador deve poder adquirir um cartão Andante associado a um tipo de assinatura específico (TipoAssinatura), como passe geral, passe sub23, passe família, etc.
 
-- Validação de Viagem: O sistema deve registar os detalhes da viagem, incluindo o ID da viagem, hora de início e data, quando um utilizador valida o seu cartão Andante antes de entrar no metro.
+- O sistema deve disponibilizar opções para selecionar o tipo de assinatura desejado durante o processo de aquisição do cartão.
 
-- Verificação de Validade do Passe: Os fiscalizadores devem ser capazes de verificar a validade do passe de um utilizador consultando a base de dados central e as informações do cartão Andante associado.
+Validação de Viagens:
 
-- Suporte Multilingua: O sistema deve oferecer opções de idioma para atender a utilizadores que falam diferentes idiomas.
+- O utilizador deve poder validar o seu cartão Andante ao embarcar numa viagem, registando os detalhes da viagem (ViagemID, InicioViagem, DataViagem, Validacao).
 
-### **Gestão de Dados:**
+### **Requisitos do Fiscalizador:**
 
-- Armazenamento de dados do Utilizador: O sistema deve armazenar com segurança os dados do utilizador, estes devem ser encriptados e armazenados de forma segura para preservar a privacidade dos utilizadores.
+Validação de Cartões e Acesso à Base de Dados:
 
-- Armazenamento de Cartões Andante: As informações do cartão, incluindo números de identificação únicos e datas de validade, devem ser armazenadas e associadas às respetivas contas de utilizador.
+- O fiscalizador deve poder verificar a validade de um cartão Andante apresentado por um utilizador.
 
-- Armazenamento de Registos de Viagem: O sistema deve armazenar os detalhes das viagens, incluindo ID da viagem, hora de início e data, para fins de auditoria e validação.
+- O sistema deve permitir que o fiscalizador aceda à base de dados central para validar as assinaturas ativas do utilizador.
+
+### **Requisitos do Developer:**
+
+Design da Interface de Utilizador:
+
+- A interface do sistema deve ser intuitiva, de fácil utilização e proporcionar uma navegação fácil tanto para utilizadores quanto para fiscalizadores.
+
+- O processo de registo deve ter campos de entrada claros para que os utilizadores possam inserir as suas informações pessoais.
+
+- A interface deve exibir informações relevantes e opções relacionadas à aquisição de cartões, assinaturas e validação de viagens.
+
+Gestão de Dados e Segurança:
+
+- O sistema deve armazenar e gerir com segurança as informações do utilizador e os detalhes dos cartões.
+
+- Os dados do utilizador, incluindo histórico de viagens e informações de assinatura, devem ser adequadamente vinculados e armazenados numa base de dados centralizada.
+
+- O sistema deve implementar medidas de segurança para proteger os dados do utilizador, incluindo encriptação e controlo de acesso.
+
+NOTA: _Os developers podem consultar estes requisitos para projetar e implementar as funcionalidades e características necessárias._
 
 ---
 [< Previous](rebd00.md) | [^ Main](https://github.com/a041326/TCM22-SIBD-G01/blob/main/README.md) | [Next >](rebd02.md)
