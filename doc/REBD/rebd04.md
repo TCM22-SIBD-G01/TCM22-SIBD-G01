@@ -1,8 +1,14 @@
 # C4 : Modelo Relacional
 
+- [Relações](#relações)
+  - [Tabela Utilizador](#tabela-utilizador)
+  - [Tabela CartaoAndante](#tabela-cartaoandante)
+  - [Tabela Assinatura](#tabela-assinatura)
+  - [Tabela Viagem](#tabela-viagem)
+
 ## **Relações**
-#
-### **Tabela utilizador**
+
+### **Tabela Utilizador**
 ### Descrição da Tabela utilizador ###
 Esta tabela reflete como todas as informções estão relacionadas entre si, as informações sobre cada uma das colunas, entre outras.
 ### **Colunas**
@@ -69,9 +75,6 @@ Esta tabela reflete como todas as informções estão relacionadas entre si, as 
 - **Chave Estrangeira:**
 
 ![ChaveEstrangeira2](/doc/REBD/imagens/ChaveEstrangeira2.png)
-
-## **Vistas**
-
 ---
 [< Previous](rebd03.md) | [^ Main](https://github.com/a041326/TCM22-SIBD-G01/blob/main/README.md) | [Next >](rebd05.md)
 :--- | :---: | ---: 
