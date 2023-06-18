@@ -10,6 +10,7 @@ Este projeto busca resolver um problema de multas injustas no sistema de transpo
 # Organização do repositório
 
 - Relatórios estão na :[pasta doc](/doc/)
+- Source code está na :[pasta src](/src/)
 
 # Galeria
 
@@ -23,6 +24,8 @@ Este projeto busca resolver um problema de multas injustas no sistema de transpo
 - [Virtual Studio Code](https://code.visualstudio.com)
 
 - [Diagrams](https://www.diagrams.net)
+
+- [Dia](http://dia-installer.de)
 
 # Relatórios
 
