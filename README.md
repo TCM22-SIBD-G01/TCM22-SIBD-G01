@@ -27,11 +27,19 @@ Este projeto busca resolver um problema de multas injustas no sistema de transpo
 
 - [Dia](http://dia-installer.de)
 
+- [Mysql](https://www.mysql.com)
+
+- [Node.js](https://nodejs.org/en)
+
+- [Loopback](https://loopback.io)
+
 # Relatórios
 
 :[REI, Relatório de Especificação da Informação](/doc/REI/rei00.md)
 
 :[REBD, Relatório de Especificação da Base de Dados](/doc/REBD/rebd00.md)
+
+:[Produto](/doc/PRODUTO/)
 
 :[M2 Proposta](/doc/TCM22-SIBD01-M2Proposta.md)
 

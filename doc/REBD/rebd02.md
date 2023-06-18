@@ -49,5 +49,5 @@ Restrição de Backup:
 - O backup deve ser realizado para evitar a perda de dados em caso de falha de hardware ou software.
 
 ---
-[< Previous](rebd01.md) | [^ Main](https://github.com/exemploTrabalho/reportSIBD/) | [Next >](rebd03.md)
+[< Previous](rebd01.md) |  [^ Main](https://github.com/a041326/TCM22-SIBD-G01/blob/main/README.md) | [Next >](rebd03.md)
 :--- | :---: | ---: 
