@@ -89,33 +89,64 @@ CREATE TABLE IF NOT EXISTS `Efetua` (
 
 Seguem-se alguns exemplos de queries SQL que evidenciam a conformidade com os requisitos identificados:
 
-**1**. Query para obter as informações de um cartão de andante específico com base no seu ID:
+**1**. Query para obter as informações de todos ou de um cartão de andante específico com base no seu ID:
 
 ```sql
 USE `test`;
 
-SELECT * FROM CARTAO_ANDANTE WHERE CartaoID = 'ABC123';
+SELECT andante_database.CartaoAndante.CartaoID, andante_database.Assinatura.Validade, Preco, TipodeAssinatura, andante_database.Possui_um.NIF, Nome, Email, NumeroTelemovel FROM CartaoAndante
+LEFT JOIN andante_database.Possui_um
+ON andante_database.CartaoAndante.CartaoID = andante_database.Possui_um.CartaoID
+LEFT JOIN andante_database.Utilizador
+ON andante_database.Utilizador.NIF = andante_database.Possui_um.NIF
+LEFT JOIN andante_database.Contem
+ON andante_database.Contem.CartaoID = andante_database.CartaoAndante.CartaoID
+LEFT JOIN andante_database.Assinatura
+ON andante_database.Assinatura.AssinaturaID = andante_database.Contem.AssinaturaID;
 
 ```
 
-- **Requisito**: Essa consulta obtém as informações de um cartão de andante específico com base no seu ID.
+- **Requisito**: Essa consulta obtém as informações de todos os cartões de andante.
 
-- **Resultado esperado**: As informações do cartão de andante com o ID especificado.
+- **Resultado esperado**: Como resultado vamos obter colunas com "CartãoID", "Validade", "Preco", "TipodeAssinatura", "NIF", "Nome", "Email" e "NumeroTelemovel.
+
+```sql
+USE `test`;
+
+SELECT andante_database.CartaoAndante.CartaoID, andante_database.Assinatura.Validade, Preco, TipodeAssinatura, andante_database.Possui_um.NIF, Nome, Email, NumeroTelemovel FROM CartaoAndante
+LEFT JOIN andante_database.Possui_um
+ON andante_database.CartaoAndante.CartaoID = andante_database.Possui_um.CartaoID
+LEFT JOIN andante_database.Utilizador
+ON andante_database.Utilizador.NIF = andante_database.Possui_um.NIF
+LEFT JOIN andante_database.Contem
+ON andante_database.Contem.CartaoID = andante_database.CartaoAndante.CartaoID
+LEFT JOIN andante_database.Assinatura
+ON andante_database.Assinatura.AssinaturaID = andante_database.Contem.AssinaturaID
+WHERE andante_database.CartaoAndante.CartaoID = '512446';
+
+```
+
+- **Requisito**:Essa consulta obtém as informações de um cartão de andante especifico com base no seu ID.
+
+- **Resultado esperado**: Como resultado vamos obter colunas com "CartãoID", "Validade", "Preco", "TipodeAssinatura", "NIF", "Nome", "Email" e "NumeroTelemovel.
 
 **2**. Query para registar uma nova viagem para um utilizador:
 
 ```sql
 USE `test`;
 
-INSERT INTO VIAGEM (ViagemID, InicioViagem, DataViagem, Validacao, CartaoID)
-VALUES ('123456', '09:30:00', '2023-06-02', 'Validado', 'ABC123');
+INSERT INTO andante_database.Viagem (ViagemID, InicioViagem, DataViagem, Validacao)
+VALUES ('445', 'Francos', '2023-06-02', 'Validado');
+
+INSERT INTO andante_database.Efetua (EfetuaID,ViagemID, CartaoID)
+VALUES ('32', '445', '429700');
 
 ```
 - **Requisito**: Insere uma nova viagem no sistema para um utilizador específico.
 
-- **Resultado Esperado**: A viagem com o ID "123456" é registrada no sistema com o horário de início da viagem às 09:30:00, data da viagem em 2 de junho de 2023, status de validação como "Validado" e está associada ao cartão de andante com o ID "ABC123".
+- **Resultado Esperado**: A viagem com o ID "445" é registrada no sistema com a data da viagem em 2 de junho de 2023, status de validação como "Validado" e está associada ao cartão de andante com o ID "429700".
 
-**3**. Query para obter o histórico de viagens de um utilizador:
+**3**. Query para obter o histórico de viagens de todos ou de um utilizador:
 
 ```sql
 USE `test`;
@@ -125,47 +156,82 @@ FROM VIAGEM
 WHERE CartaoID = 'ABC123';
 
 ```
-- **Requisito**: Realiza uma consulta para obter o histórico de viagens de um utilizador específico.
+- **Requisito**: Realiza uma consulta para obter o histórico de todas as viagens.
 
-- **Resultado Esperado**:  Serão retornadas as informações das viagens realizadas pelo utilizador associado ao cartão de andante com o ID "ABC123". As informações incluem o ID da viagem, horário de início da viagem, data da viagem e status de validação.
-
-**4**. Query para atualizar a zona de uma viagem:
+- **Resultado Esperado**:  Serão retornadas as informações das viagens realizadas. As informações incluem o ID da viagem, data da viagem e status de validação, assim como o ID da Viagem, O ID dos cartões e ID da viagem efetuada.
 
 ```sql
 USE `test`;
 
-UPDATE VIAGEM
-SET Zona = 'Zona 2'
-WHERE ViagemID = '123456789';
+SELECT andante_database.Viagem.ViagemId, InicioViagem, DataViagem, Validacao, CartaoID
+FROM andante_database.Viagem
+LEFT JOIN andante_database.Efetua
+ON andante_database.Viagem.ViagemID = andante_database.Efetua.ViagemID
+WHERE CartaoID = '125872';
 
 ```
-- **Requisito**: Realiza a atualização da zona de uma viagem específica. O campo a ser atualizado é a Zona. A condição WHERE especifica o ViagemID da viagem que se deseja atualizar.
+- **Requisito**: Realiza uma consulta para obter o histórico de viagens do CartaoID "125872".
 
-- **Resultado Esperado**: A zona da viagem com o ViagemID especificado será atualizada para a nova zona fornecida.
+- **Resultado Esperado**:  Serão retornadas as informações das viagens realizadas pelo mesmo CartaoID. As informações incluem o ID da viagem, data da viagem e status de validação, assim como o ID da Viagem, O ID dos cartões e ID da viagem efetuada.
 
-**5**. Query para atualizar as informações pessoais de um utilizador:
+**4**. Query para atualizar os dados de utilizador:
+
+```sql
+USE `test`
+
+UPDATE andante_database.Utilizador
+SET Nome = 'Gabriel Silva', Email = 'gabrielsilva@hotmail.com', NumeroTelemovel = '987654321', Endereco = 'Avenida dos Aliados,456,Porto,Portugal' 
+WHERE NIF = '398425761';
+
+```
+- **Requisito**: Atualizar os dados de um espoecifico utilizador baseado no seu NIF.
+
+- **Resultado Esperado**: Alterar as colunas "Nomes", "Email", "NumeroTelemovel" e "Endereco".
+
+**5**. Query para criar um novo utilizador assim como um novo cartão:
 
 ```sql
 USE `test`;
 
-UPDATE UTILIZADOR
-SET Nome = 'Novo Nome', Email = 'novoemail@example.com', NumeroTelemovel = '987654321', Endereco = 'Nova Morada'
-WHERE NIF = '123456789';
+INSERT INTO Utilizador (NIF, UtilizadorID, Nome, Email, NumeroTelemovel, Endereco)
+VALUES (398252733, 93358, 'Antonio Ramos', 'antonioramos@gmail.com', 925372523, 'Rua das Flores, 123, Porto,Portugal');
 
 ```
 
-- **Requisito**: Atualizar as informações pessoais de um utilizador. Os campos a serem atualizados são Nome, Email, NumeroTelemovel e Endereco.  A condição WHERE especifica o NIF do utilizador que se deseja atualizar.
+- **Requisito**: Criar um novo utilizador.
 
-- **Resultado Esperado**: As informações pessoais do utilizador com o NIF especificado serão atualizadas com os novos valores fornecidos.
+- **Resultado Esperado**: Inserir na tabeça "Utilizador", linha com os dados especificos de "NIF", "UtilizadorID", "Nome", "Email", "NumeroTelemovel" e "Endereco".
+
+```sql
+USE `test`;
+
+INSERT INTO andante_database.Assinatura (TipodeAssinatura, Validade, Preco)
+VALUES ('Sub23', '2023-07-25', '30.00');
+
+INSERT INTO andante_database.CartaoAndante (CartaoID, Validade)
+VALUES ('924836', '2025-07-25');
+
+INSERT INTO andante_database.Contem (AssinaturaID, CartaoID)
+VALUES ('62', '924836');
+
+INSERT INTO andante_database.Possui_um ( NIF, CartaoID)
+VALUES ('398252733', '924836');
+
+```
+
+- **Requisito**: Inserir os dados do novo cartão do Utilizador.
+
+- **Resultado Esperado**: A primeira declaração adiciona uma nova subscrição com a sua Validade e preço na tabela "Assinatura". A segunda declaração insere um novo cartão Andante (924836) com a sua validade na tabela "CartaoAndante". A terceira declaração associa a subscrição com o cartão na tabela "Contem". A quarta declaração declara a relação de proprietário entre o utilizador e o cartão na tabela "Possui_um".
 
 **6**. Query para atualizar o preço de uma assinatura:
 
 ```sql
 USE `test`;
 
-UPDATE ASSINATURA
-SET Preco = 30.00
-WHERE TipoAssinatura = 'Passe Geral';
+UPDATE andante_database.Assinatura 
+SET andante_database.Assinatura.Preco = 30.00 
+WHERE andante_database.Assinatura.TipodeAssinatura = 'Normal' 
+  AND andante_database.Assinatura.AssinaturaID = '7';
 ```
 - **Requisito**: Realiza a atualização do preço de uma assinatura específica. O campo a ser atualizado é o Preco. A condição WHERE especifica o TipoAssinatura da assinatura que se deseja atualizar.
 
