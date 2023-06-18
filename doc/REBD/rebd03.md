@@ -20,5 +20,5 @@ VIAGEM (_**ViagemID**_, InicioViagem, DataViagem, Validacao)
 A normalização do nosso esquema, após a 1NF, não tem mais  dependências funcionais além das chaves primárias (PK). Portanto, sem nenhuma normalização adicional, o processo de normalização está completo.
 
 ---
-[< Previous](rebd02.md) | [^ Main](https://github.com/exemploTrabalho/reportSIBD/) | [Next >](rebd04.md)
+[< Previous](rebd02.md) |  [^ Main](https://github.com/a041326/TCM22-SIBD-G01/blob/main/README.md) | [Next >](rebd04.md)
 :--- | :---: | ---: 
