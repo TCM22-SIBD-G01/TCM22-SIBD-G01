@@ -1,6 +1,6 @@
 # C3 : LoopBack4
 
-elativamente à integração com o LoopBack4, este foi utilizado como  framework, de desenvolvimento de APIs, a partir do Node.js. Criamos de forma rápida a framework,  uma vez que este gera automaticamente modelos e APIs baseados nas tabelas e relações definidas na andante_database. Relativamente à criação dos endpoints, estes foram criados para manipular dados como criação de novos registros, recuperar registros existentes, atualizar dados ou excluí-los.
+Relativamente à integração com o LoopBack4, este foi utilizado como  framework, de desenvolvimento de APIs, a partir do Node.js. Criamos de forma rápida a framework,  uma vez que este gera automaticamente modelos e APIs baseados nas tabelas e relações definidas na andante_database. Relativamente à criação dos endpoints, estes foram criados para manipular dados como criação de novos registros, recuperar registros existentes, atualizar dados ou excluí-los.
 
 ![AssinaturaController,LoopBack](/doc/PRODUTO/imagens/LoopBack-001.png)
 

@@ -15,6 +15,7 @@ O objetivo deste trabalho é apresentar a estrutura das tabelas que criamos no b
 ## **O nosso trabalho**
 
 1. Tabela Utilizador:
+
 A tabela Utilizador armazena informações dos utilizadores no seu sistema. A mesma contem as seguintes informações:
 
 - NIF: Número de Identificação Fiscal do Utilizador,
@@ -30,6 +31,7 @@ A tabela Utilizador armazena informações dos utilizadores no seu sistema. A me
 - Endereço: Endereço do Utilizador.
 
 2. Tabela Assinatura:
+
 A tabela Assinatura contém informações sobre os tipos de assinaturas disponiveis. A mesma contem as seguintes informações:
 
 - AssinaturaID: Identificador único da assinatura,
