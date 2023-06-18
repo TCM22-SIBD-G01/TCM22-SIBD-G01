@@ -3,9 +3,8 @@
 ## **DDL**
 
 ```sql
-USE `test`;
 
-CREATE TABLE `test`.`Utilizador` (
+CREATE TABLE `andante_database`.`Utilizador` (
   `NIF` INT(9) NOT NULL,
   `UtilizadorID` INT(5) NOT NULL,
   `Nome` VARCHAR(45) NOT NULL,
@@ -16,7 +15,7 @@ CREATE TABLE `test`.`Utilizador` (
   UNIQUE INDEX `NIF_UNIQUE` (`NIF` ASC) VISIBLE,
   UNIQUE INDEX `UtilizadorID_UNIQUE` (`UtilizadorID` ASC) VISIBLE);
   
-  CREATE TABLE `test`.`Assinatura` (
+  CREATE TABLE `andante_database`.`Assinatura` (
   `AssinaturaID` INT(11) NOT NULL,
   `TipodeAssinatura` VARCHAR(45) NOT NULL,
   `Validade` DATE NOT NULL,
@@ -24,20 +23,20 @@ CREATE TABLE `test`.`Utilizador` (
   PRIMARY KEY (`AssinaturaID`),
   UNIQUE INDEX `AssinaturaID_UNIQUE` (`AssinaturaID` ASC) VISIBLE);
   
-CREATE TABLE `test`.`CartaoAndante` (
+CREATE TABLE `andante_database`.`CartaoAndante` (
   `CartaoID` INT(11) NOT NULL,
   `Validade` DATE NOT NULL,
   PRIMARY KEY (`CartaoID`),
   UNIQUE INDEX `CartaoID_UNIQUE` (`CartaoID` ASC) VISIBLE);
   
-CREATE TABLE `test`.`Viagem` (
+CREATE TABLE `andante_database`.`Viagem` (
   `ViagemID` INT(11) NOT NULL,
   `InicioViagem` VARCHAR(45) NOT NULL,
   `DataViagem` DATE NOT NULL,
   `Validacao` VARCHAR(45) NOT NULL,
   PRIMARY KEY (`ViagemID`),
   UNIQUE INDEX `ViagemID_UNIQUE` (`ViagemID` ASC) VISIBLE);
-CREATE TABLE `test`.`Contem` (
+CREATE TABLE `andante_database`.`Contem` (
   `ContemID` INT(11) NOT NULL AUTO_INCREMENT,
   `Contem_AssinaturaID` INT(11) NOT NULL,
   `Contem_CartaoID` INT(11) NOT NULL,
@@ -72,7 +71,6 @@ Seguem-se alguns exemplos de queries SQL que evidenciam a conformidade com os re
 **1**. Query para obter as informações de todos ou de um cartão de andante específico com base no seu ID:
 
 ```sql
-USE `test`;
 
 SELECT andante_database.CartaoAndante.CartaoID, andante_database.Assinatura.Validade, Preco, TipodeAssinatura, andante_database.Possui_um.NIF, Nome, Email, NumeroTelemovel FROM CartaoAndante
 LEFT JOIN andante_database.Possui_um
@@ -91,7 +89,6 @@ ON andante_database.Assinatura.AssinaturaID = andante_database.Contem.Assinatura
 - **Resultado esperado**: Como resultado vamos obter colunas com "CartãoID", "Validade", "Preco", "TipodeAssinatura", "NIF", "Nome", "Email" e "NumeroTelemovel.
 
 ```sql
-USE `test`;
 
 SELECT andante_database.CartaoAndante.CartaoID, andante_database.Assinatura.Validade, Preco, TipodeAssinatura, andante_database.Possui_um.NIF, Nome, Email, NumeroTelemovel FROM CartaoAndante
 LEFT JOIN andante_database.Possui_um
@@ -113,7 +110,6 @@ WHERE andante_database.CartaoAndante.CartaoID = '512446';
 **2**. Query para registar uma nova viagem para um utilizador:
 
 ```sql
-USE `test`;
 
 INSERT INTO andante_database.Viagem (ViagemID, InicioViagem, DataViagem, Validacao)
 VALUES ('445', 'Francos', '2023-06-02', 'Validado');
@@ -129,7 +125,6 @@ VALUES ('32', '445', '429700');
 **3**. Query para obter o histórico de viagens de todos ou de um utilizador:
 
 ```sql
-USE `test`;
 
 SELECT ViagemID, InicioViagem, DataViagem, Validacao
 FROM VIAGEM
@@ -141,7 +136,6 @@ WHERE CartaoID = 'ABC123';
 - **Resultado Esperado**:  Serão retornadas as informações das viagens realizadas. As informações incluem o ID da viagem, data da viagem e status de validação, assim como o ID da Viagem, O ID dos cartões e ID da viagem efetuada.
 
 ```sql
-USE `test`;
 
 SELECT andante_database.Viagem.ViagemId, InicioViagem, DataViagem, Validacao, CartaoID
 FROM andante_database.Viagem
@@ -157,7 +151,6 @@ WHERE CartaoID = '125872';
 **4**. Query para atualizar os dados de utilizador:
 
 ```sql
-USE `test`
 
 UPDATE andante_database.Utilizador
 SET Nome = 'Gabriel Silva', Email = 'gabrielsilva@hotmail.com', NumeroTelemovel = '987654321', Endereco = 'Avenida dos Aliados,456,Porto,Portugal' 
@@ -171,7 +164,6 @@ WHERE NIF = '398425761';
 **5**. Query para criar um novo utilizador assim como um novo cartão:
 
 ```sql
-USE `test`;
 
 INSERT INTO Utilizador (NIF, UtilizadorID, Nome, Email, NumeroTelemovel, Endereco)
 VALUES (398252733, 93358, 'Antonio Ramos', 'antonioramos@gmail.com', 925372523, 'Rua das Flores, 123, Porto,Portugal');
@@ -183,7 +175,6 @@ VALUES (398252733, 93358, 'Antonio Ramos', 'antonioramos@gmail.com', 925372523, 
 - **Resultado Esperado**: Inserir na tabeça "Utilizador", linha com os dados especificos de "NIF", "UtilizadorID", "Nome", "Email", "NumeroTelemovel" e "Endereco".
 
 ```sql
-USE `test`;
 
 INSERT INTO andante_database.Assinatura (TipodeAssinatura, Validade, Preco)
 VALUES ('Sub23', '2023-07-25', '30.00');
@@ -206,7 +197,6 @@ VALUES ('398252733', '924836');
 **6**. Query para atualizar o preço de uma assinatura:
 
 ```sql
-USE `test`;
 
 UPDATE andante_database.Assinatura 
 SET andante_database.Assinatura.Preco = 30.00 
