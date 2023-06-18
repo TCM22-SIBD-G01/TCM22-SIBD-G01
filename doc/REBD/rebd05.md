@@ -5,83 +5,63 @@
 ```sql
 USE `test`;
 
--- Drop tabelas se existirem
-
-DROP TABLE IF EXISTS `UTILIZADOR`;
-DROP TABLE IF EXISTS `CARTAO_ANDANTE`;
-DROP TABLE IF EXISTS `ASSINATURA`;
-DROP TABLE IF EXISTS `VIAGEM`;
-DROP TABLE IF EXISTS `Possui_um`;
-DROP TABLE IF EXISTS `Contem`;
-DROP TABLE IF EXISTS `Efetua`;
-
--- Criar tabela UTILIZADOR
-
-CREATE TABLE IF NOT EXISTS `UTILIZADOR` (
-  `NIF` VARCHAR(9) NOT NULL,
-  `Nome` VARCHAR(255) NOT NULL,
-  `Email` VARCHAR(255) NOT NULL,
-  `NumeroTelemovel` VARCHAR(9) NOT NULL,
-  `Endereco` VARCHAR(255) NOT NULL,
-  PRIMARY KEY (`NIF`)
-);
-
--- Criar tabela CARTAO_ANDANTE 
-
-CREATE TABLE IF NOT EXISTS `CARTAO_ANDANTE` (
-  `CartaoID` INT UNSIGNED NOT NULL,
+CREATE TABLE `test`.`Utilizador` (
+  `NIF` INT(9) NOT NULL,
+  `UtilizadorID` INT(5) NOT NULL,
+  `Nome` VARCHAR(45) NOT NULL,
+  `Email` VARCHAR(45) NOT NULL,
+  `NumeroTelemovel` INT(9) NOT NULL,
+  `Endereco` VARCHAR(100) NOT NULL,
+  PRIMARY KEY (`NIF`),
+  UNIQUE INDEX `NIF_UNIQUE` (`NIF` ASC) VISIBLE,
+  UNIQUE INDEX `UtilizadorID_UNIQUE` (`UtilizadorID` ASC) VISIBLE);
+  
+  CREATE TABLE `test`.`Assinatura` (
+  `AssinaturaID` INT(11) NOT NULL,
+  `TipodeAssinatura` VARCHAR(45) NOT NULL,
   `Validade` DATE NOT NULL,
-  PRIMARY KEY (`CartaoID`)
-);
-
--- Criar tabela ASSINATURA 
-
-CREATE TABLE IF NOT EXISTS `ASSINATURA` (
+  `Preco` DECIMAL(10,2) NOT NULL,
+  PRIMARY KEY (`AssinaturaID`),
+  UNIQUE INDEX `AssinaturaID_UNIQUE` (`AssinaturaID` ASC) VISIBLE);
+  
+CREATE TABLE `test`.`CartaoAndante` (
+  `CartaoID` INT(11) NOT NULL,
   `Validade` DATE NOT NULL,
-  `TipoAssinatura` VARCHAR(255) NOT NULL,
-  `Preco` DECIMAL(10, 2) NOT NULL,
-  PRIMARY KEY (`Validade`, `TipoAssinatura`)
-);
-
--- Criar tabela VIAGEM 
-
-CREATE TABLE IF NOT EXISTS `VIAGEM` (
-  `ViagemID` INT UNSIGNED NOT NULL,
-  `InicioViagem` VARCHAR(255) NOT NULL,
+  PRIMARY KEY (`CartaoID`),
+  UNIQUE INDEX `CartaoID_UNIQUE` (`CartaoID` ASC) VISIBLE);
+  
+CREATE TABLE `test`.`Viagem` (
+  `ViagemID` INT(11) NOT NULL,
+  `InicioViagem` VARCHAR(45) NOT NULL,
   `DataViagem` DATE NOT NULL,
-  `Validacao` BOOLEAN NOT NULL,
-  PRIMARY KEY (`ViagemID`)
-);
+  `Validacao` VARCHAR(45) NOT NULL,
+  PRIMARY KEY (`ViagemID`),
+  UNIQUE INDEX `ViagemID_UNIQUE` (`ViagemID` ASC) VISIBLE);
+CREATE TABLE `test`.`Contem` (
+  `ContemID` INT(11) NOT NULL AUTO_INCREMENT,
+  `Contem_AssinaturaID` INT(11) NOT NULL,
+  `Contem_CartaoID` INT(11) NOT NULL,
+  PRIMARY KEY (`ContemID`),
+  UNIQUE INDEX `ContemID_UNIQUE` (`ContemID` ASC) VISIBLE);  
+  
+CREATE TABLE `Possui_um` (
+  `NIF` int(9) NOT NULL,
+  `CartaoID` int(11) NOT NULL,
+  KEY `NIF_idx` (`NIF`),
+  KEY `CartaoID_idx` (`CartaoID`),
+  CONSTRAINT `CartaoID` FOREIGN KEY (`CartaoID`) REFERENCES `CartaoAndante` (`CartaoID`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  CONSTRAINT `NIF` FOREIGN KEY (`NIF`) REFERENCES `Utilizador` (`NIF`) ON DELETE NO ACTION ON UPDATE CASCADE);
 
--- Criar tabela Possui_um 
-
-CREATE TABLE IF NOT EXISTS `Possui_um` (
-  `NIF` VARCHAR(9) NOT NULL,
-  `CartaoID` INT UNSIGNED NOT NULL,
-  PRIMARY KEY (`NIF`, `CartaoID`),
-  FOREIGN KEY (`NIF`) REFERENCES `UTILIZADOR`(`NIF`),
-  FOREIGN KEY (`CartaoID`) REFERENCES `CARTAO_ANDANTE`(`CartaoID`)
-);
-
--- Criar tabela Contem 
-
-CREATE TABLE IF NOT EXISTS `Contem` (
-  `CartaoID` INT UNSIGNED NOT NULL,
-  `TipoAssinatura` VARCHAR(255) NOT NULL,
-  PRIMARY KEY (`CartaoID`, `TipoAssinatura`),
-  FOREIGN KEY (`CartaoID`) REFERENCES `CARTAO_ANDANTE`(`CartaoID`),
-  FOREIGN KEY (`TipoAssinatura`) REFERENCES `ASSINATURA`(`TipoAssinatura`)
-);
-
--- Criar tabela Efetua 
-
-CREATE TABLE IF NOT EXISTS `Efetua` (
-  `CartaoID` INT UNSIGNED NOT NULL,
-  `ViagemID` INT UNSIGNED NOT NULL,
-  PRIMARY KEY (`CartaoID`, `ViagemID`),
-  FOREIGN KEY (`CartaoID`) REFERENCES `CARTAO_ANDANTE`(`CartaoID`),
-  FOREIGN KEY (`ViagemID`) REFERENCES `VIAGEM`(`ViagemID`)
-);
+CREATE TABLE `Efetua` (
+  `EfetuaID` int(11) NOT NULL AUTO_INCREMENT,
+  `CartaoID` int(11) NOT NULL,
+  `ViagemID` int(11) NOT NULL,
+  PRIMARY KEY (`EfetuaID`),
+  UNIQUE KEY `EfetuaID_UNIQUE` (`EfetuaID`),
+  KEY `Efetua_ViagemID` (`ViagemID`),
+  KEY `Efetua_CartaoID` (`CartaoID`),
+  CONSTRAINT `Efetua_CartaoID` FOREIGN KEY (`CartaoID`) REFERENCES `CartaoAndante` (`CartaoID`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  CONSTRAINT `Efetua_ViagemID` FOREIGN KEY (`ViagemID`) REFERENCES `Viagem` (`ViagemID`) ON DELETE NO ACTION ON UPDATE NO ACTION);
 
 ```
 
