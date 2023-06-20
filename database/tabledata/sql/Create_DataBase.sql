@@ -6,8 +6,8 @@ CREATE TABLE `andante_database`.`Utilizador` (
   `NumeroTelemovel` INT(9) NOT NULL,
   `Endereco` VARCHAR(100) NOT NULL,
   PRIMARY KEY (`NIF`),
-  UNIQUE INDEX `NIF_UNIQUE` (`NIF` ASC) VISIBLE,
-  UNIQUE INDEX `UtilizadorID_UNIQUE` (`UtilizadorID` ASC) VISIBLE);
+  UNIQUE INDEX `NIF_UNIQUE` (`NIF` ASC) ,
+  UNIQUE INDEX `UtilizadorID_UNIQUE` (`UtilizadorID` ASC) );
   
   CREATE TABLE `andante_database`.`Assinatura` (
   `AssinaturaID` INT(11) NOT NULL,
@@ -15,13 +15,13 @@ CREATE TABLE `andante_database`.`Utilizador` (
   `Validade` DATE NOT NULL,
   `Preco` DECIMAL(10,2) NOT NULL,
   PRIMARY KEY (`AssinaturaID`),
-  UNIQUE INDEX `AssinaturaID_UNIQUE` (`AssinaturaID` ASC) VISIBLE);
+  UNIQUE INDEX `AssinaturaID_UNIQUE` (`AssinaturaID` ASC) );
   
 CREATE TABLE `andante_database`.`CartaoAndante` (
   `CartaoID` INT(11) NOT NULL,
   `Validade` DATE NOT NULL,
   PRIMARY KEY (`CartaoID`),
-  UNIQUE INDEX `CartaoID_UNIQUE` (`CartaoID` ASC) VISIBLE);
+  UNIQUE INDEX `CartaoID_UNIQUE` (`CartaoID` ASC) );
   
 CREATE TABLE `andante_database`.`Viagem` (
   `ViagemID` INT(11) NOT NULL,
@@ -29,13 +29,13 @@ CREATE TABLE `andante_database`.`Viagem` (
   `DataViagem` DATE NOT NULL,
   `Validacao` VARCHAR(45) NOT NULL,
   PRIMARY KEY (`ViagemID`),
-  UNIQUE INDEX `ViagemID_UNIQUE` (`ViagemID` ASC) VISIBLE);
+  UNIQUE INDEX `ViagemID_UNIQUE` (`ViagemID` ASC) );
 CREATE TABLE `andante_database`.`Contem` (
   `ContemID` INT(11) NOT NULL AUTO_INCREMENT,
   `Contem_AssinaturaID` INT(11) NOT NULL,
   `Contem_CartaoID` INT(11) NOT NULL,
   PRIMARY KEY (`ContemID`),
-  UNIQUE INDEX `ContemID_UNIQUE` (`ContemID` ASC) VISIBLE);  
+  UNIQUE INDEX `ContemID_UNIQUE` (`ContemID` ASC) );  
   
 CREATE TABLE `Possui_um` (
   `NIF` int(9) NOT NULL,
